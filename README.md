@@ -3,12 +3,16 @@ runDisort_mat
 
 This code runs DISORT from PYTHON 2.7 to perform radiative transfer calculations for layered model atmospheres, including absorption and scattering. Inputs include gaseous optical depths, atmospheric parameters, and cloud properties. Radiative transfer is performed using DISORT 2.0 Beta (from ftp://climate1.gsfc.nasa.gov/wiscombe/Multiple_Scatt/). Using f2py, inputs and outputs can be passed directly to and from the DISORT fortran code. This requires PYTHON 2.7, since PYTHON 3.x does not yet support f2py. This is a work in progress, and may have bugs. It is shared without guarantees of any kind. Improvements are ongoing, and we welcome feedback.
 
-To use this code, you will need to do the following:
+To use this code, please do the following:
 
 1) Install Python on your computer. These instructions are for Python 2.7, which uses f2py. (You can also install Python 3.4 and use the fortran magic). If you have upgraded to 3.4, you can switch back to 2.7 using $ source activate py*, where the py* depends on how you installed python; for example, it might be python2 or python2.7 or (in my case) py27. To switch back type $ source deactivate. You will also need Fortran.
+
 2) Copy these files onto your computer.
+
 3) Within the installation directory, modify the makefile as needed for the fortran compiler you have; here we use gfortan. Run "make" to compile disort_driver_mat (a fortran executable). This is the code that will call disort.
+
 4) Move or copy disort_driver_py into the directory “Compare2runDisort_mat” (need to make sure this step is needed).
+
 5) You can try out the code in Python using “sample_run.py” in the sampleRun folder.  Make sure your path information will all work out. Compare your output (disort_out.txt) to “disort_out_sample_run.txt.” Note that the output should also be the same as when running “sample_run.m” from the Matlab code in runDisort_mat.
 
 
