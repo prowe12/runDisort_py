@@ -3,17 +3,25 @@ runDisort_mat
 
 This code runs DISORT from PYTHON 2.7 to perform radiative transfer calculations for layered model atmospheres, including absorption and scattering. Inputs include gaseous optical depths, atmospheric parameters, and cloud properties. Radiative transfer is performed using DISORT 2.0 Beta (from ftp://climate1.gsfc.nasa.gov/wiscombe/Multiple_Scatt/). Using f2py, inputs and outputs can be passed directly to and from the DISORT fortran code. This requires PYTHON 2.7, since PYTHON 3.x does not yet support f2py. This is a work in progress, and may have bugs. It is shared without guarantees of any kind. Improvements are ongoing, and we welcome feedback.
 
-To use this code, first compile disort_driver_py.f (a fortran executable), located in the installation folder. Further instructions pending.
+To use this code, you will need to do the following:
+
+1) Install Python on your computer. These instructions are for Python 2.7, which uses f2py. (You can also install Python 3.4 and use the fortran magic). If you have upgraded to 3.4, you can switch back to 2.7 using $ source activate py*, where the py* depends on how you installed python; for example, it might be python2 or python2.7 or (in my case) py27. To switch back type $ source deactivate. You will also need Fortran.
+2) Copy these files onto your computer.
+3) Within the installation directory, modify the makefile as needed for the fortran compiler you have; here we use gfortan. Run "make" to compile disort_driver_mat (a fortran executable). This is the code that will call disort.
+4) Move or copy disort_driver_py into the directory “Compare2runDisort_mat” (need to make sure this step is needed).
+5) You can try out the code in Python using “sample_run.py” in the sampleRun folder.  Make sure your path information will all work out. Compare your output (disort_out.txt) to “disort_out_sample_run.txt.” Note that the output should also be the same as when running “sample_run.m” from the Matlab code in runDisort_mat.
+
+
 
 Planned upgrades: 
 1) A new version of DISORT, DISORT3 is available. I hope to incorporate this soon. 
-2) This code requires gaseous optical depths as input. We use the line-by-line radiative transfer model (LBLRTM; http://rtweb.aer.com/lblrtm.html) for this purpose. A github directory for a codes for running LBLRTM from MATLAB or Octave, runLBLRTM_mat, is in progress. This code is currently available on request.
+2) This code requires gaseous optical depths as input. We use the line-by-line radiative transfer model (LBLRTM; http://rtweb.aer.com/lblrtm.html) for this purpose. A github directory for codes for running LBLRTM from MATLAB or Octave, runLBLRTM_mat, is in progress. This code is currently available on request.
 3) A matlab version is also available on this github site (runDisort_mat).
 4) I hope to incorporate single scattering parameter files for more realistic ice habits soon.
 
 
 
-Acknowledging use of this code (please let us know if any are missing):
+Acknowledging use of this code (please let us know if any references are missing):
 
 1) If this code is used in work leading to a publication, please include an acknowledgement to P.M. Rowe, S. Neshyba, and V. P. Walden. A reference is pending, so please contact Penny Rowe (prowe@harbornet.com for proper referencing)
 
@@ -35,7 +43,7 @@ Acknowledging use of this code (please let us know if any are missing):
 
 6) For use of the solar irradiance spectra: Kurucz, R.L., Synthetic infrared spectra, in Infrared Solar Physics, IAU Symp. 154, edited by D.M. Rabin and J.T. Jefferies, Kluwer, Acad., Norwell, MA, 1992.
 
-7) For use of cloud_2012012006_cld1.mat (used by sample_run.m), please reference Cox et al., 2015, to be submitted to ESSD. Please also see our database of atmospheric profiles and cloudy and clear sky up and downwelling radiances characteristic of the Arctic (available on request).
+7) For use of cloud_2012012006_cld1.mat (used by sample_run.m), please reference: Cox, C., Rowe, P. M., Neshyba, S., & Walden, V. P. (2016). A synthetic data set of high-spectral resolution infrared spectra for the Arctic atmosphere. Earth System Science Data Discussions, 1–29. http://doi.org/10.5194/essd-2015-40, in review for Earth System Science Data. Please also see our database of atmospheric profiles and cloudy and clear sky up and downwelling radiances characteristic of the Arctic at the Arctic Observing Network (AON) Arctic data repository (at \url{https://www.aoncadis.org/dataset/AAIRO_spectra.html}; doi:10.5065/D61J97TT).
 
 
 

@@ -1,9 +1,11 @@
 
 
 #  ... This file contains inputs from the namelist file 
-#      "disortinput_comp2py.nml" in order to compare the results
+#      "disortinput.nml" in order to perform a sample run
+#      of DISORT using Python.
+#
+#      The results should be comparable to the results
 #      from running DISORT using matlab and python
-#      Here we use python ...
 
 
 import disort_driver_py; reload(disort_driver_py)
@@ -44,7 +46,7 @@ TTEMP =  2.73000000000000E+02
 BTEMP =  2.43000000000000E+02
 NMOM = 154
 NCLDLYR = 1
-OUTFILE = 'disort_out_py.txt'
+OUTFILE = 'disort_out.txt'
 #/
 
 
